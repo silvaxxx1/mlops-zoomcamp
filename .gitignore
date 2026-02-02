@@ -1,0 +1,38 @@
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+*.env
+*.venv
+env/
+venv/
+*.egg-info/
+dist/
+build/
+
+# Jupyter notebooks checkpoints
+.ipynb_checkpoints/
+
+# Data directories
+1-intro_and_setup/data/
+**/data/
+
+# MLflow experiments and artifacts
+1-intro_and_setup/experiments_*/
+**/experiments_*/
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+
+# Virtual environments
+.env/
+.venv/
+
+# IDE settings
+.vscode/
+.idea/

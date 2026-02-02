@@ -1,2 +1,2 @@
 # mlops-zoomcamp
-the mlops zoomcamp
+the mlops zoomcamp course repository 

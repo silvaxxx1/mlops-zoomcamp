@@ -1,38 +1,49 @@
+# =========================
 # Python
+# =========================
 __pycache__/
-*.pyc
-*.pyo
+*.py[cod]
 *.pyd
-*.env
-*.venv
-env/
-venv/
 *.egg-info/
 dist/
 build/
 
-# Jupyter notebooks checkpoints
+# Virtual environments
+.venv/
+.env/
+env/
+venv/
+
+# =========================
+# Jupyter
+# =========================
 .ipynb_checkpoints/
 
-# Data directories
-1-intro_and_setup/data/
+# =========================
+# Data & artifacts
+# =========================
+data/
 **/data/
 
-# MLflow experiments and artifacts
-1-intro_and_setup/experiments_*/
+# MLflow
+mlruns/
+**/mlruns/
+experiments_*/
 **/experiments_*/
 
+# =========================
+# Logs
+# =========================
+*.log
+
+# =========================
 # OS files
+# =========================
 .DS_Store
 Thumbs.db
 
-# Logs
-*.log
-
-# Virtual environments
-.env/
-.venv/
-
-# IDE settings
+# =========================
+# IDEs
+# =========================
 .vscode/
 .idea/

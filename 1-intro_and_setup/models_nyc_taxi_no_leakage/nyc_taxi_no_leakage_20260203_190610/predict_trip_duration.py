@@ -4,14 +4,18 @@
 import joblib
 import pandas as pd
 import numpy as np
+from pathlib import Path
 
 class NYCTaxiPredictor:
     """Predict taxi trip duration with NO data leakage"""
 
     def __init__(self, model_path, preprocessor_path):
         """Load model and preprocessor"""
-        self.model = joblib.load(model_path)
-        self.preprocessor = joblib.load(preprocessor_path)
+      
+        base_dir = Path(__file__).resolve().parent
+
+        self.model = joblib.load(base_dir / model_path)
+        self.preprocessor = joblib.load(base_dir / preprocessor_path)
 
     def predict(self, trip_data):
         """
@@ -62,7 +66,12 @@ class NYCTaxiPredictor:
 # Example usage
 if __name__ == "__main__":
     # Initialize predictor
-    predictor = NYCTaxiPredictor('best_model.pkl', 'preprocessor.pkl')
+    model_path = 'best_model.pkl'
+    preprocessor_path = 'preprocessor.pkl'
+
+    print(model_path, preprocessor_path)
+
+    predictor = NYCTaxiPredictor(model_path, preprocessor_path)
 
     # Example trip (ALL information available at pickup)
     example_trip = {
@@ -79,8 +88,7 @@ if __name__ == "__main__":
     }
 
     result = predictor.predict(example_trip)
-    print(f"
-🚖 NYC Taxi Trip Duration Prediction (No Data Leakage)")
+    print(f"🚖 NYC Taxi Trip Duration Prediction (No Data Leakage)")
     print("=" * 50)
     print(f"Predicted duration: {result['predicted_duration_minutes']} minutes")
     print(f"95% confidence: {result['confidence_interval']}")
